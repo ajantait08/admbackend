@@ -6,20 +6,25 @@ use Illuminate\Http\Request;
 use App\Models\MenuModel;
 use Illuminate\Support\Facades\DB;
 
+function timetablecheck($subjects, $tocheck)
+{
+    return true;
+}
 
-function getDepartment($type=null,$onlyActive = false){
-  if ($onlyActive) {
-      $onlyActive = 1;
-  }
-  if($type){
-    $type=$type;
-  }
-  $department = DB::table('cbcs_departments')->select('cbcs_departments.*')->when($onlyActive, function ($query) use ($onlyActive) {
-      return $query->where('cbcs_departments.status', '=', "$onlyActive");
-  })->when($type, function ($query) use ($type) {
-      return $query->where('cbcs_departments.type', '=', "$type");
-  })->orderBy('cbcs_departments.id', 'asc')->get();
-  return $department;
+function getDepartment($type = null, $onlyActive = false)
+{
+    if ($onlyActive) {
+        $onlyActive = 1;
+    }
+    if ($type) {
+        $type = $type;
+    }
+    $department = DB::table('cbcs_departments')->select('cbcs_departments.*')->when($onlyActive, function ($query) use ($onlyActive) {
+        return $query->where('cbcs_departments.status', '=', "$onlyActive");
+    })->when($type, function ($query) use ($type) {
+        return $query->where('cbcs_departments.type', '=', "$type");
+    })->orderBy('cbcs_departments.id', 'asc')->get();
+    return $department;
 }
 
 function GetSession($onlyActive = false)
