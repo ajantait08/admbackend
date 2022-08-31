@@ -8,7 +8,7 @@ use Illuminate\Support\Facades\DB;
 
 function timetablecheck($subjects, $tocheck)
 {
-    echo "this is test again";
+    echo "kuch bhi yaar";
     return false;
 }
 
