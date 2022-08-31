@@ -8,7 +8,7 @@ use Illuminate\Support\Facades\DB;
 
 function timetablecheck($subjects, $tocheck)
 {
-    return true;
+    return false;
 }
 
 function getDepartment($type = null, $onlyActive = false)
