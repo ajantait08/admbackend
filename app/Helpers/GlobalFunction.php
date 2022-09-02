@@ -8,7 +8,7 @@ use Illuminate\Support\Facades\DB;
 
 function timetablecheck($subjects, $tocheck)
 {
-    echo "demo git";
+    echo "demo git 1";
     return false;
 }
 
