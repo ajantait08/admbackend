@@ -15,23 +15,25 @@ class Controller extends BaseController
 
     public function __construct()
     {
-        $this->middleware('auth:sanctum', ['except' => ['login', 'TokenError', 'UpdatePassword', 'sanctum/csrf-cookie']]);
+        $this->middleware('auth:sanctum', ['except' => ['login','login_api', 'validateSingleLogin','sendEmailBulkMannualy', 'TokenError', 'UpdatePassword', 'sanctum/csrf-cookie']]);
     }
-    public function sendResponse($result, $message,$recordCount=null)
+    public function sendResponse($result, $message, $recordCount = null)
     {
+
+
         $response = [
             'status' => true,
             'responseCode' => 200,
             'message' => $message,
             'data'    => $result,
-            'recordCount'    => isset($recordCount) ? $recordCount : (isset($result) ? count($result) : 0),
+            'recordCount'    => isset($recordCount) ? $recordCount : (isset($result) ? is_array($result) ? count($result) : 0 : 0),
             'timestamp' => date('d-m-Y H:s:i a'),
         ];
 
 
         return response()->json($response, 200);
     }
-    public function sendError($shortMsg = 'Failed', $errorMessages = 'Something Went Worng.Please try Again !', $result = [], $code = 404)
+    public function sendError($shortMsg = 'Failed', $errorMessages = 'Something Went Worng.Please try Again !', $result = [], $code = 402)
     {
         $response = [
             'status' => false,
@@ -48,6 +50,6 @@ class Controller extends BaseController
         // }
 
 
-        return response()->json($response, $code);
+        return response()->json($response, 200);
     }
 }

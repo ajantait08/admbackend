@@ -1,0 +1,26 @@
+
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <script src="https://code.jquery.com/jquery-3.6.1.min.js" integrity="sha256-o88AwQnZB+VDvE9tvIXrMQaPlFFSUTR+nldQm1LuPXQ=" crossorigin="anonymous"></script>
+    <title></title>
+  </head>
+  <body>
+
+  </body>
+
+    <script type="text/javascript">
+      $.ajax({
+          type: "post",
+          url: "rsync.php",
+          data: {'secret':"12154512"},
+          dataType: 'application/json', // maybe not needed? I do not know if jQuery autodetects it
+          success: function(data) {
+            console.log(data)
+              // here you can use data.var1 and data.var2 to read the fields
+          }
+      });
+
+    </script>
+</html>

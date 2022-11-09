@@ -11,7 +11,7 @@ class UserController extends Controller
     public function __construct()
     {
         $this->middleware('auth:sanctum',);
-        $this->middleware('AuthCheck:emp');
+        $this->middleware('AuthCheck:stu');
     }
 
     function sendSms(Request $request)

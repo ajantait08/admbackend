@@ -33,7 +33,7 @@ class AuthCheck
                     'status' => false,
                     'message' => 'User Has been Blocked !',
                     'errorCode' => '403',
-                ], 409);
+                ], 200);
             } else {
             }
             if ($auths) {
@@ -46,14 +46,14 @@ class AuthCheck
                         'status' => false,
                         'message' => 'Unauthorize Access !',
                         'errorCode' => '402',
-                    ], 409);
+                    ], 200);
                 }
             }else{
               return response()->json([
                   'status' => false,
                   'message' => 'Unauthorize Not Given to any user !',
                   'errorCode' => '403',
-              ], 410);
+              ], 200);
             }
         }
 

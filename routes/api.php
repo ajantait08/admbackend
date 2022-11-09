@@ -18,20 +18,26 @@ Route::fallback(function () {
     return response()->json([
         'status' => false,
         'message' => 'Invalid Route !!',
-    ], 401);
+    ], 200);
 });
 
 Route::controller(AuthController::class)->group(function () {
     Route::post('login', 'login');
+    Route::post('login_api', 'login_api');
     Route::post('register', 'register');
     Route::post('logout', 'logout');
-    Route::post('refresh', 'refresh');
+    Route::get('refresh', 'refresh');
     Route::post('update_password', 'UpdatePassword');
     Route::post('un-block-user', 'unBlockUser');
     Route::get('TokenError', 'TokenError')->name('TokenError');
+
 });
 
 // here add routes Module wise
 
 include('adminRoutes.php');
 include('userRoutes.php');
+include('preRegRoute.php');
+# Payment Route @mit
+include('paymentRoute/payment.php');
+# Payment Route @mit
