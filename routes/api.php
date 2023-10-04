@@ -41,3 +41,9 @@ include('preRegRoute.php');
 # Payment Route @mit
 include('paymentRoute/payment.php');
 # Payment Route @mit
+#convocation Route @janta
+include('convocationRoute/convocation.php');
+#convocation Route @janta
+#admission Route @janta
+include('convocationRoute/convocation.php');
+#admission Route @janta
