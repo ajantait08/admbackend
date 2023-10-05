@@ -45,5 +45,5 @@ include('paymentRoute/payment.php');
 include('convocationRoute/convocation.php');
 #convocation Route @janta
 #admission Route @janta
-include('convocationRoute/convocation.php');
+include('admissionRoute/admission.php');
 #admission Route @janta
